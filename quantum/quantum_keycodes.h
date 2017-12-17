@@ -152,8 +152,9 @@ enum quantum_keycodes {
 
     // Midi
 #if !MIDI_ENABLE_STRICT || (defined(MIDI_ENABLE) && defined(MIDI_BASIC))
-    MI_ON,  // send midi notes when music mode is enabled
-    MI_OFF, // don't send midi notes when music mode is enabled
+    MI_ON,
+    MI_OFF,
+    MI_TOG,
 #endif
 
 #if !MIDI_ENABLE_STRICT || (defined(MIDI_ENABLE) && defined(MIDI_ADVANCED))
@@ -421,6 +422,9 @@ enum quantum_keycodes {
 
     // Right shift, close paren
     KC_RSPC,
+
+    // Shift, Enter
+    KC_SFTENT,
 
     // Printing
     PRINT_ON,
