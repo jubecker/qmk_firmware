@@ -12,15 +12,19 @@ extern keymap_config_t keymap_config;
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
-  RAISE
+  RAISE,
+  ADJUST
 };
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
 
+//#define KC_LOWR     LT(LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
+//#define KC_RAIS     LT(RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
+#define KC_LGSP MT(MOD_LGUI, KC_SPC)
+#define KC_RGSP MT(MOD_RGUI, KC_SPC)
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
-#define KC_RST RESET
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -30,23 +34,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSLS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,ENT ,
+     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,ENT ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LSFT, Z  , X  , C  , V  , B  ,LALT,     RALT, N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LALT,SPC ,         ENT ,LGUI,LALT
-  //                  `----+----+----'        `----+----+----'
+                       LCTL,LOWR,LGSP,         RGSP,RASE,RCTL
+    //                `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,EQ  ,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,MINS,EQL ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    , UP ,RBRC,LBRC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,               HOME,LEFT,DOWN,RGHT,END ,QUOT,
+         ,    ,    ,    ,    ,    ,               HOME,LEFT,DOWN,RGHT,QUOT,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,MINS,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -56,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
+         ,MSTP,VOLU,MPLY,    ,    ,                   ,    ,PGUP,    ,    ,SLEP,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,HOME,    ,    ,    ,BSLS,
+         ,MPRV,VOLD,MNXT,    ,    ,                   ,    ,PGDN,    ,    ,WAKE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,END ,    ,    ,    ,    ,
+         ,    ,MUTE,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
