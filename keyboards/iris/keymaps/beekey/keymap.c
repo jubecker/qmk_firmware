@@ -19,12 +19,12 @@ enum custom_keycodes {
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
 
-//#define KC_LOWR     LT(LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
-//#define KC_RAIS     LT(RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
-#define KC_LGSP MT(MOD_LGUI, KC_SPC)
-#define KC_RGSP MT(MOD_RGUI, KC_SPC)
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
+//#define KC_TGLR     LT(LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
+//#define KC_TGRS     LT(RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
+#define KC_LGSP MT(MOD_LGUI, KC_SPC)
+#define KC_RGSP MT(MOD_RGUI, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSLS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,ENT ,
+     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,ENT ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,LALT,     RALT, N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LCTL, Z  , X  , C  , V  , B  ,LALT,     RALT, N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LALT,LGSP,LOWR,         RASE,RGSP,RCTL
     //                `----+----+----'        `----+----+----'
@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,MINS,EQL ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   ,    , UP ,RBRC,LBRC,    ,
+         ,    ,    ,    ,    ,    ,                   ,PGUP, UP ,PGDN,LBRC,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,               HOME,LEFT,DOWN,RGHT,QUOT,    ,
+         ,    ,    ,    ,    ,    ,               HOME,LEFT,DOWN,RGHT,END ,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -60,15 +60,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MSTP,VOLU,MPLY,    ,    ,                   ,    ,PGUP,    ,    ,SLEP,
+         ,MSTP,VOLU,MPLY,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MPRV,VOLD,MNXT,    ,    ,                   ,    ,PGDN,    ,    ,WAKE,
+         ,MPRV,VOLD,MNXT,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,MUTE,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,MUTE,    ,    ,    ,SLEP,     WAKE,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
-  )
+  ),
+
+  [_ADJUST] = KC_KEYMAP(
+  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+     F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+         ,MSTP,VOLU,MPLY,    ,    ,                   ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+         ,MPRV,VOLD,MNXT,    ,    ,                   ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+         ,    ,MUTE,    ,    ,    ,SLEP,     WAKE,    ,    ,    ,    ,    ,    ,
+  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                           ,    ,    ,             ,    ,
+  //                  `----+----+----'        `----+----+----'
+   )
 };
 
 #ifdef AUDIO_ENABLE
