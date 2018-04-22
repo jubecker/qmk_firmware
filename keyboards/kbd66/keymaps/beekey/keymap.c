@@ -2,6 +2,7 @@
 
 #define _MA 0
 #define _FL 1
+#define _SL 2
 
 #define TRNS KC_TRNS
 #define ______ KC_NO
@@ -14,18 +15,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Main Layer
 [_MA] = KEYMAP(
 	KC_GESC,	KC_1, 		KC_2, 		KC_3, 		KC_4, 		KC_5, 		KC_6, 		KC_7, 		KC_8, 		KC_9, 		KC_0, 		KC_MINS,	KC_EQL,		______,		KC_BSPC,	KC_PGUP,
-	KC_TAB,		KC_Q, 		KC_W, 		KC_E, 		KC_R, 		KC_T, 		KC_Y, 		KC_U, 		KC_I,  		KC_O,  		KC_P, 		KC_LBRC,	KC_RBRC,	KC_BSLS,				KC_PGDN,
-	KC_CAPS,	KC_A, 		KC_S,   	KC_D, 		KC_F, 		KC_G, 		KC_H, 		KC_J, 		KC_K,  		KC_L,  		KC_SCLN, 	KC_QUOT,  				KC_ENT,
-	KC_LSFT, 	TRNS,		KC_Z, 		KC_X,   	KC_C, 		KC_V, 		KC_B, 		KC_N, 		KC_M, 		KC_COMM, 	KC_DOT,		KC_SLSH, 	KC_RSFT,    TRNS,		KC_UP,
-	KC_LCTL, 	KC_LGUI, 	KC_LALT,							SPACE,					SPACE,								KC_RALT,	KC_RCTRL, 	MO(_FL),	KC_LEFT, 	KC_DOWN, 	KC_RGHT),
+	KC_TAB,		KC_Q, 		KC_W, 		KC_E, 		KC_R, 		KC_T, 		KC_Y, 		KC_U, 		KC_I,  		KC_O,  		KC_P, 		KC_LBRC,	KC_RBRC,	KC_BSLS,				    KC_PGDN,
+	KC_LCTL,	KC_A, 		KC_S,   	KC_D, 		KC_F, 		KC_G, 		KC_H, 		KC_J, 		KC_K,  		KC_L,  		KC_SCLN, 	KC_QUOT,  				  KC_ENT,
+	KC_LSFT, 	TRNS,		  KC_Z, 		KC_X,   	KC_C, 		KC_V, 		KC_B, 		KC_N, 		KC_M,		KC_COMM, 	KC_DOT,		KC_SLSH, 	KC_RSFT,  TRNS,		  KC_UP,
+	KC_LCTL, 	MO(_SL), 	KC_LALT,							KC_LGUI,					SPACE,								KC_RALT,	MO(_SL),	KC_RCTL,                      KC_LEFT, 	KC_DOWN, 	KC_RGHT),
 
 //Function Layer
 [_FL] = KEYMAP(
-	KC_GRV,		KC_F1,		KC_F2,  	KC_F3,  	KC_F4,  	KC_F5,		KC_F6,		KC_F7, 		KC_F8,		KC_F9,		KC_F10,  	KC_F11,		KC_F12,		TRNS,		RESET,		KC_PSCR,
-	TRNS, 		KC_MPLY,	KC_VOLU,  	KC_MSTP, 	TRNS, 		  TRNS, 		TRNS,		KC_PGUP, 		  KC_UP, 		KC_PGDN, 		TRNS, 		TRNS,		TRNS,		TRNS,					______,
-	TRNS, 		KC_MPRV,	KC_VOLD, 	  KC_MNXT,		TRNS,		    TRNS,	    TRNS,		KC_LEFT,		KC_DOWN,	KC_RGHT,		KC_END,	TRNS,   				TRNS,
-	TRNS, 		TRNS,		  TRNS,		  TRNS,		  TRNS,	 	TRNS, 		TRNS, 		TRNS,		TRNS,		TRNS,	TRNS,	TRNS,	TRNS,		TRNS,		TRNS,
-	TRNS, 		TRNS, 		TRNS,								TRNS,					TRNS,								TRNS,		TRNS,		TRNS,   	______,		TRNS, 	______),
+	KC_GRV,		KC_F1,		KC_F2,  	KC_F3,  	KC_F4,  	KC_F5,		KC_F6,		KC_F7, 		KC_F8,		KC_F9,		KC_F10,  	KC_F11,		KC_F12,		TRNS,		  TRNS,		  KC_PSCR,
+	TRNS, 		KC_MRWD,	KC_VOLU,  KC_MFFD, 	TRNS, 		TRNS, 		TRNS,		  KC_PGUP, 	KC_UP, 		KC_PGDN, 	TRNS, 		TRNS,		  TRNS,		  TRNS,					      ______,
+	TRNS, 		KC_MPLY,	KC_VOLD, 	KC_MSTP,	TRNS,		  TRNS,	    TRNS,		  KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_END,	  TRNS,   				    TRNS,
+	TRNS, 		TRNS,		  KC_MUTE,		  TRNS,		  TRNS,	 	  TRNS, 		TRNS, 		TRNS,		  TRNS,		  TRNS,	    TRNS,	    TRNS,	    TRNS,		  TRNS,		  TRNS,
+	TRNS, 		TRNS, 		TRNS,								  TRNS,					  TRNS,								  TRNS,		  TRNS,		  TRNS,   	                    ______,		TRNS, 	  ______),
+
+//System Layer
+[_SL] = KEYMAP(
+	TRNS,		  TRNS,		  TRNS,  	  TRNS,  	  TRNS,  	  TRNS,		  TRNS,		  TRNS, 		TRNS,		  TRNS,		  TRNS,  	  TRNS,		  TRNS,		  TRNS,		  TRNS,		  KC_SLEP,
+	TRNS, 		TRNS,	    TRNS,  	  TRNS, 	  TRNS, 	  TRNS, 		TRNS,		  KC_PGUP, 	KC_UP, 		KC_PGDN, 	TRNS, 		TRNS,		  TRNS,		  TRNS,					      KC_WAKE,
+	RESET, 		TRNS,	    TRNS, 	  TRNS,		  TRNS,		  TRNS,	    TRNS,		  KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_END,	  TRNS,   				    TRNS,
+	TRNS, 		TRNS,		  TRNS,		  TRNS,		  TRNS,	 	  TRNS, 		TRNS, 		TRNS,		  TRNS,		  TRNS,	    TRNS,	    TRNS,	    TRNS,		  TRNS,		  TRNS,
+	TRNS, 		TRNS, 		TRNS,								  TRNS,					  TRNS,								  TRNS,		  TRNS,		  TRNS,   	                  ______,		  TRNS, 	  ______),
 
 };
 
