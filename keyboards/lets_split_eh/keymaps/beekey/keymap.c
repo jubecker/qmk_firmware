@@ -26,8 +26,8 @@ enum custom_keycodes {
 #define KC_RGHT KC_RIGHT
 
 #define KC_EURO   LSFT(LALT(KC_2))
-#define LT_LOWR   LT(_LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
-#define LT_RAIS   LT(_RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
+#define LT_LOWR   LT(LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
+#define LT_RAIS   LT(RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
