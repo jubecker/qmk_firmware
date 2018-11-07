@@ -26,8 +26,8 @@ enum custom_keycodes {
 #define KC_RGHT KC_RIGHT
 
 #define KC_EURO   LSFT(LALT(KC_2))
-#define LT_LOWR   LT(LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
-#define LT_RAIS   LT(RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
+#define LT_LOWR   LT(_LOWER, KC_SPC)          // L-ayer T-ap Lower / Space
+#define LT_RAIS   LT(_RAISE, KC_SPC)          // L-ayer T-ap Raise / Space
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   KC_BSPC, \
     KC_TAB, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,KC_ENT,  \
     KC_LSFT,KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,RSFT_T(KC_QUOT), \
-    KC_LCTL,_RAISE, ADJUST, KC_LALT,KC_LGUI,LT_LOWR,LT_RAIS,KC_LBRC,KC_RBRC,ADJUST, KC_MINS,KC_EQL \
+    KC_LCTL,RAISE,  ADJUST, KC_LALT,KC_LGUI,LT_LOWR,LT_RAIS,KC_LBRC,KC_RBRC,ADJUST, KC_MINS,KC_EQL \
 ),
 
 /* Lower
@@ -149,3 +149,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
