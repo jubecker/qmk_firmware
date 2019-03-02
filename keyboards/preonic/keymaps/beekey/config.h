@@ -40,3 +40,6 @@
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
 
 #endif
+
+#define NO_DEBUG
+#define DISABLE_LEADER
