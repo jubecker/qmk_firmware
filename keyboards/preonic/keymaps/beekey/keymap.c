@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   -  |   =  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   ~  |      | Vol+ |   €  |      |      |      | PgDn | Up   | PgUp |   [  |   ]  |
+ * |   ~  |      | Vol+ |   €  |      |      |      | PgUp | Up   | PgDn |   [  |   ]  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      | Stop | Mute | Play |      |      | Home | Left | Down | Right|  End |   "  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_preonic_grid( \
    KC_TILD, KC_EXLM,KC_AT,  KC_HASH,KC_DLR,KC_PERC,KC_CIRC, KC_AMPR, KC_ASTR,KC_MINS,KC_EQL, KC_BSPC, \
-   _______, _______,KC_VOLU,KC_EURO,_______,_______,_______, KC_PGDN,KC_UP,  KC_PGUP,KC_LBRC,KC_RBRC, \
+   _______, _______,KC_VOLU,KC_EURO,_______,_______,_______, KC_PGUP,KC_UP,  KC_PGDN,KC_LBRC,KC_RBRC, \
    _______, KC_MSTP,KC_MUTE,KC_MPLY,_______,_______,KC_HOME, KC_LEFT,KC_DOWN,KC_RGHT,KC_END, KC_QUOT, \
    _______, _______,KC_VOLD,_______,_______,_______,KC_TILD, _______,_______,_______,KC_BSLS,KC_PIPE, \
    _______, _______,_______,_______,_______,_______, _______,_______,_______,_______,_______,_______  \
